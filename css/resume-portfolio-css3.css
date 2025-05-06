@@ -1,0 +1,741 @@
+/* Font Size & Color Across All Pages */
+.hero_header, h1, nav, input, textarea, #submit {
+	font-family: forma-djr-display, sans-serif;
+}
+h1, .hero_header {
+	font-size: 72px; 
+}
+h1 {
+	text-align: center;
+}
+.tagline {
+	font-size: 24px; 
+}
+h1, h2, h3, h4, .hero_header, .tagline {
+	color: #1C2326;
+}
+.h3-portfolio {
+	font-size: 30px; 
+	padding-left: 30px; 
+}
+.h4-degrees {
+	font-size: 18px;
+}
+.university, .degree-description, .workplace-location, .job-description, .bodytext, .bodytext-portfolio {
+	font-size: 16px; 
+	color: #1C2326;
+}
+.bodytext-portfolio {
+	line-height: 20px; 
+}
+/* Font Size & Color Across All Pages END */
+body {
+	font-family: area-normal, sans-serif;
+	background-color: #e9ecf2;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+	min-height: 100vh; 
+	display: flex; 
+	flex-direction: column; 
+	height: 100vh;
+}
+/* Container */
+.container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 1000px;
+	background-color: #e9ecf2; 
+}
+nav {
+	display: flex;  
+	top: 0px; /*Added 4-2-25 to make nav sticky*/
+	z-index: 9999; /*Added 4-2-25 to make nav sticky*/
+	position: fixed; /*Changed from relative to fixed to make nav sticky 4-2-25 */
+	justify-content: space-between;  
+	align-items: center; 
+	width: 90%;   /*Added 4-2-25 to make nav sticky; changed from auto, which is what it was previously*/
+	height: 6%; /*Added 4-2-25; changed from 5.5%*/
+	padding-bottom: 5px; 
+	background-color: #cee0e8; /*Added 4-2-25. Changed from rgba(173,204,217,.4); when I made nav sticky and you scrolled, you could see the transparency so used a tint of the rgb color listed */
+		/*;*/
+}
+nav ul { /*The ul (unordered list) within the nav is the flex container. The flex items are all the li characters (home, portfolio, resume).*/
+	display: flex; 
+	width: 400px;  
+	padding-top: 5px; 
+	list-style: none; 
+	justify-content: space-around; 
+}
+nav ul li { /*This selector means that you are targeting li elements within a ul element within ONLY the nav*/
+	list-style: none; 
+}
+nav a {
+	/*If you want to change the style of the font, you'll have to do it in this set of code*/
+	text-transform: uppercase; 
+	font-weight: bold; 
+	text-decoration: none; 
+	letter-spacing: 0.15em;
+	color: #1C2326;
+	display: inline-block; 
+	position: relative; 
+	padding-bottom: 2.5px; /*Controls the distance of the hover line beneath the home, portfolio, and resume bottons. Controls how close to the bottom of the words it appears*/ 
+}
+nav a:after {
+	background: none repeat scroll 0 0 transparent; 
+	bottom: 0; 
+	content:""; 
+	display: block; 
+	height: 2px; 
+	left: 50%; 
+	position: absolute; 
+	background-color: #1C2326;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s; 
+	width: 0; 
+}
+nav a:hover:after {
+	width: 100%; 
+	left:0; 
+}
+/*START HAMBURGER MENU*/
+/*YouTube video tutorial: https://youtu.be/yG2cJ_EbNQg?si=vtY2A4JbXfOxmDnv*/
+input {
+	display: none; 
+}
+input:checked ~ nav .nav-list {
+	transform: translateY(0%);
+}
+input:checked ~ nav .menu-toggle {
+	margin-top: 25px; /*This moves the menu down when it is clicked; I'm not sure I need it*/
+}
+input:checked ~ nav .menu-toggle .bar:nth-child(1) { /*This controls when the hamburger menu is clicked how it turns into an X to x out of the menu*/
+	position: absolute; 
+	transform: rotate(45deg); /*Controls the rotation of the top bar in the hamburger menu to slant it*/
+}
+input:checked ~ nav .menu-toggle .bar:nth-child(2) {
+	display: none; /*This hides the middle bar in the hamburger menu so that the top and bottom ones can be rotated into an X*/
+}
+input:checked ~ nav .menu-toggle .bar:nth-child(3) {
+	transform: rotate(-45deg); /*Controls the rotation of the top bar in the hamburger menu to slant it*/
+}
+nav .menu-toggle {
+	display: none; /*This hides the hamburger menu in desktop size*/
+	height: min-content; 
+	margin-top: 15px; 
+	margin-right: 10px; 
+	cursor: pointer; 
+	transition: 0.3s; 
+}
+nav .menu-toggle .bar {
+	width: 35px; /*the width and heigh properties here control how wide/tall the hamburger menu is*/
+	height: 3px; /*Controls the line thickness of the 3 hamburger bars*/
+	background: #1C2326;
+	margin-bottom: 10px; 
+	transform: 0.3s; 
+}
+/*END HAMBURGER MENU*/
+
+/* Hero Section */
+.hero, .hero-nonhomepgs { 
+	background-color: #87B4C5; 
+	/*background-color: #7aacbf;*/
+	margin-top: 40px; 
+}
+.hero {
+	padding-top: 140px;
+	padding-bottom: 140px;
+	z-index: 10; /*This controls the flow of the elements when the hamburger menu is displayed. It makes sure the hero box is in the background when the hamburger menu comes up. --> "An element with a greater z-index value will be displayed in front of an element with a lower z-index value." See .decorbox, .hero_header, .tagline, and nav .nav-list for the other z-indexes.*/
+}
+.hero-nonhomepgs {
+	padding-top: 30px; 
+	padding-bottom: 30px; 
+}
+.decorbox {
+	width: 15vw; 
+	height: 30vh; 
+	background-color: #ADCCD9; 
+	/*background-color: #adccd9;*/
+	position: relative; 
+	top: -140px;	
+	z-index: 20; 
+}
+.hero_header {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-weight: 700;
+	position: relative; 
+	top: -300px; 
+	z-index: 30; /*Note that this z-index number has to stay THE SAME as the .tagline*/
+}
+.hero_header, .tagline {
+	margin-left: 130px;
+}
+.tagline {
+	text-align: left;
+	margin-top: -300px;
+	font-weight: 700;  
+	position: relative; 
+	z-index: 30; 
+}
+/* About Section on Home Page */
+.about {
+	display: flex; 
+	flex-direction: row; 
+	background-color: #e9ecf2;
+	justify-content: center; 
+}
+.text_column { /*This column controls all the attributes for the white box behind the about text on the Home page. The text beneath MTPC.*/
+	height: 15%;
+	width: 45%;
+	text-align: left;
+	font-weight: lighter;
+	padding: 20px 20px 20px 20px;
+	line-height: 25px; 
+	color: #1C2326;
+	background-color: #eff5f7; /*This color is a tint of one of the original colors from the palette: #adccd9*/
+	margin-top: 10px;
+	transform: translate(10px, 40px); /*The 40px controls whether the white box is centered in the picture.*/
+}
+.photo_column {
+	width: 25%; 
+	margin-top: 20px; 
+}
+/*Flexboxes for Portfolio Page*/
+main {
+	flex-grow: 1;
+} 
+
+.container-sampleworks, .container-sampleworks-subpages {
+	display: grid; 
+	grid-template-columns: repeat(auto-fill, 360px);
+	justify-content: center; 
+	padding-top: 40px; 
+	padding-left: 10px; 
+	padding-right: 10px;
+}
+.container-sampleworks {
+	grid-template-rows: 450px; 
+	grid-column-gap: 4em; 
+	grid-row-gap: 3em;
+}
+.container-sampleworks-subpages {
+	grid-row-gap: 1em; 
+	grid-column-gap: 2em; 
+}
+.samplephoto-hover, .linkedinimage {
+	transition: transform .2s; 
+}
+.samplephoto-hover:hover, .linkedinimage:hover {
+	transform: scale(1.12);
+}
+.portfolio-hover-link {
+	text-decoration: none; 
+	color: blue; 
+}
+.portfolio-hover-link:hover {
+	text-decoration: underline; 
+	/*color: purple; #7aacbf;*/ 
+}
+#samplework5 { /*This controls the hidden Sample Work 5 in the HTML code. You'll have to delete this once you have a fifth sample work for your portfolio.*/
+	display: none; 
+}
+/*Resume Page*/
+.resume-cv-container, .experience-container, .skills-container, .three-col-container, .three-col-container-2 {
+	display: flex; 
+	position: relative; 
+	padding-top: 10px; 
+}
+.resume-cv-container, .experience-container, .three-col-container-2 {
+	/*background-color: #eff5f7; /*This color is a tint of one of the original colors from the palette: #adccd9*/
+}
+.resume-cv-container {
+	display: flex; 
+	position: relative; 
+	top: 40px; /*Controls how close to the hero header the flex container (and all the flex items in it) are.*/ 
+	flex-direction: row; 
+	margin-bottom: -10px; /*This keeps the Certificates flex section completely aligned with the Education flex section*/ 
+}
+.experience-container, .skills-container, .three-col-container, .three-col-container-2 { 
+	top: 50px; /*Keeps the experience container from overflowing on top of the education/resume-cv container*/ 
+}
+.experience-container {
+	flex-direction: row; 
+}
+.resume-headings { 
+	margin-right: 20px; /*Controls the gutter between the headings (Education) and the text*/
+}
+.resume-headings-2 {
+	margin-right: -10px; 
+}
+.resume-headings-3 {
+	margin-right: 25px; 
+}
+.resume-headings, .resume-headings-2, .resume-headings-3 {
+	display: flex; 
+	flex-basis: 30vw;
+	position: relative; 
+	top: -20px; /*makes the Education heading align with the text on the right*/ 
+	margin-left: 45px;
+}
+.text_resume {
+	margin-right: 15px;
+}
+.text_resume-2 {
+	display: flex;   
+}
+.text_resume-3 { 
+	margin-right: 175px; 
+}
+.text_resume, .text_resume-2, .text_resume-3 {
+	flex-basis: 50vw; /*The flex-basis for each of the columns inside this flex container are 50vw to make sure they're even. That's the degrees-skills-courses  class*/
+	position: relative; 
+	top: -10px; 
+}
+.button-column, .button-column-2, .button-column-3  {
+	display: flex; 
+	flex-direction: column;
+	justify-content: flex-start; 
+	flex-basis: 10vw; 
+	padding-top: -10px;
+	padding-right: 20px; 
+	position: relative; /*Makes sure that the aside column aligns with the top of the Education box*/
+	/*background-color: #f2f7f9;*/
+}
+.button-column, .button-column-3 {
+	padding-left: 19px; 
+	margin-bottom: -10px;
+	top: -10px; /*Makes sure that the aside column aligns with the top of the Education box*/ 
+}
+.button-column-2 {  
+	display: none; 
+	padding-left: 19px; /*aligns the left side of this column with the column in the Education container/section */ 
+}
+.button-column-3 {
+	display: none; 
+}
+.h4-degrees {
+	line-height: 22px; 
+	margin-bottom: 10px; 
+}
+.university {
+	line-height: 15px;
+	font-style: italic; 
+}
+.degree-description {
+	padding-left: 24px;
+	margin-bottom: 30px; 
+}
+.job-description, .degree-description { 
+	line-height: 25px;
+}
+.degrees {
+	padding-bottom: -20px; 
+}
+.degrees-skills-courses {
+	flex-basis: 30vw; 
+	margin-right: 20px; 
+}
+.button-home, .button { 
+	text-align: center; 
+	text-transform: uppercase;
+	font-weight: bold; 
+	color: #1C2326;
+	transition: all 0.3s linear;
+	border: 3px solid #1C2326;
+	text-decoration: none; 
+}
+.button-home {  
+	flex-direction: row; 
+	align-items: center; 
+	align-content: center; 
+	justify-content: space-between; 
+	letter-spacing: 2px;
+	margin: 5px 10px 5px 10px;  /*Controls the alignment of the button in the nav bar (top, right, bottom, left)*/
+	padding: 10px 20px 10px 20px; 
+	width: 100px; 
+}
+.button {  
+	display: flex; 
+	flex-direction: column; 
+	letter-spacing: 1px; 
+	margin-top: 10px; /*The margin properties controls the vertical alignment of the buttoms in the white column*/ 
+	margin-right: auto;
+	margin-bottom: 40px; 
+	margin-left: auto;
+	padding: 10px 10px 10px 10px; 
+	border-radius: 0px;
+	width: 140px; 
+}
+.button:hover, .button-home:hover {
+	border: 3px solid #e9ecf2;
+	background-color: #1C2326;
+	color: #e9ecf2;
+	cursor: pointer;
+}
+footer {
+	display: block; 
+	background-color: rgba(173,204,217,.4);
+	font-size: 12px; 
+	position: relative; 
+	margin-top: 60px;
+	margin-bottom: -20px; 
+}
+.footer_banner_flexcontainer {
+	position: relative; 
+	display: flex; 
+	flex-direction: row; 
+	justify-content: space-around; 
+	align-items: center; 
+	align-content: space-evenly; 
+	background-color: rgba(173,204,217,.4);
+	height: 60px;
+}
+/*footer p>a targets the email in the footer*/
+footer p>a {
+	text-decoration: none; 
+	color: #1C2326;
+	font-weight: bold; 
+	font-size: 14px;
+}
+footer p>a:hover {
+	color: blue; 
+	text-decoration: underline; 
+}
+.copyright { 
+	font-size: 14px; 
+}
+.hidden { /*Don't delete this. Apparently, this hides the display of an h2 header that says "About." I'm really not sure why the original template thought it was necessary to include this.*/
+	display: none;
+}
+/* Mobile */
+@media (max-width: 390px) {
+/*Mobile Hamburger Menu*/
+	nav ul { 
+		width: 60vw; 
+		height: 30vh; 
+		padding-left: 0px; /*added 2-25-25*/
+	}
+	nav .nav-list {  
+		position: absolute; 
+		background: #D1E0E8; /*This is the same as rgba(173,204,217,.4) just in hex code format*/   
+		right: 0; 
+		top: 31px; /*This controls how far from the top the nav bar displays; changed from 42 to 21 on 2-25-25 */
+		z-index: 40; /*This controls the flow of the elements when the hamburger menu is displayed. It makes sure the hamburger nav menu is displayed in front of .decorbox, .hero_header, .tagline, --> "An element with a greater z-index value will be displayed in front of an element with a lower z-index value."*/
+		transform: translateY(-150%);/*This hides the nav menu when the hamburger is displayed*/
+		transition: 0s; 
+	}
+	.nav-list { 
+		display: flex; 
+		flex-direction: column; 
+		text-align: center; 
+		height: 37.7vh; /*added 2-25-25*/
+	}
+	.nav-item {
+		padding-top: 30px;
+		padding-bottom: 20px;
+		text-align: center;  
+	}
+	nav .menu-toggle {
+		display: grid; 
+	}
+	nav a:after {/*All of the targets in this section make the hover underline effect go away when the hamburger menu displays*/
+		background: no-repeat;	
+		transition: none;
+		left: 0%; 
+	}
+	nav a:hover:after { 
+		width: 0%;/*This also makes the hover underline effect go away when the hamburger menu displays*/
+	}
+	nav ul li {
+		position: relative; 
+		right: 0px;  
+	}
+	nav ul li:hover {
+		background-color: white;  
+	}
+/*Mobile Hamburger Menu END */
+	.decorbox {
+		display: none;  
+		}
+	.hero_header, .tagline {
+		margin-left: 15px; 	
+		}
+	.tagline {
+		margin-top: -80px;
+		line-height: 22px;
+		padding-left:10px; 
+	}
+	.hero_header {
+		top: -100px;
+		padding-left: 10px;
+		padding-right: 10px;
+		line-height: 60px;
+		text-align: left;
+	}	
+	.about {
+		flex-direction: column-reverse; /*In the HTML code, the text-column comes first. Column-reverse makes the photo come first instead. You can change this to just column to */
+		align-items: center; /*This aligns the text_column and photo-column within the about div. The .about div is a flexbox*/
+	}
+	.text_column {
+		width: 90%;
+		height: auto; 
+		margin-top: 5px;
+		margin-bottom: -50px; 
+		transform: translate(0px, 0px); 
+	}
+	.photo_column {
+		width: 90%; 
+		text-align: center;  
+		margin-top: 5px;  
+	}
+	.button-home {
+		width: 25%;
+		text-align: center;
+		justify-content: center;  
+		margin-top: 5px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	.container header nav { /*DO NOT--I REPEAT--DO NOT DELETE THIS. Mobile media query WILL NOT work if this is deleted!*/
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		width: 100%;
+		float: none;
+		display: none;
+	}
+/*Portfolio Page*/
+	.container-sampleworks {
+		padding: 5px 5px 5px 5px; /*ADDED 1-24-25*/
+	}
+	.container-sampleworks-subpages{
+		padding: 5px 5px 5px 5px; /*ADDED 1-24-25*/
+	}
+	.samplephoto-hover { 
+		text-align: center; 
+	}
+	.flexcontainer-samplework-photo {
+		/*flex-direction: column;*/  
+		padding: 5px 5px 5px 5px; /*ADDED 1-24-25*/
+	}
+	.text_portfolio {
+		text-align: left; 
+		padding: 5px 5px 5px 5px; /*ADDED 1-24-25*/
+	}
+/*Resume Page*/
+	.resume-cv-container, .experience-container, .skills-container, .three-col-container, .three-col-container-2 {
+		flex-direction: column; 
+	}
+	.button-column-3 {
+		display: flex; 
+		flex-direction: row; 
+		justify-content: space-around; /*You'll want to do row-reverse to get the resume and cv buttons to display at the top*/
+	}
+	.button-column, .button-column-2 {
+		display: none; 
+	}
+	.resume-headings, .resume-headings-2, .resume-headings-3 {
+		top: 0px; 
+		width: 70vw; 
+		flex-basis: 10vw;  /*somehow this controls the space between Education and the text*/
+	}
+	.text_resume-2 {
+		display: flex; 
+		flex-direction: column; 
+	}
+	.text_resume, .text_resume-2, .text_resume-3 {
+		margin-left: 55px; 
+		width: 70vw; 
+		flex-basis: 20vw; 
+	}
+	.h3-portfolio {
+		padding-left: 10px; 
+	}
+/*Resume Page End*/
+		.footer_banner_flexcontainer {
+		flex-direction: column; 
+		align-items: center; 
+		justify-content: center; 
+		height: 120px; 
+	}
+}
+/* Small Tablets */
+@media (min-width: 391px) and (max-width: 767px) {
+/*Mobile Hamburger Menu*/
+	nav ul { 
+		width: 60vw; 
+		height: 30vh; 
+		padding-left: 0px; /*added 2-25-25*/
+	}
+	nav .nav-list {  
+		/*grid-row-end: span 3; */
+		position: absolute; 
+		background: #D1E0E8; /*This is the same as rgba(173,204,217,.4) just in hex code format*/   
+		right: 0; 
+		top: 31px; /*This controls how far from the top the nav bar displays. Changed 4-6-2025*/
+		z-index: 40; /*This controls the flow of the elements when the hamburger menu is displayed. It makes sure the hamburger nav menu is displayed in front of .decorbox, .hero_header, .tagline, --> "An element with a greater z-index value will be displayed in front of an element with a lower z-index value."*/
+		transform: translateY(-150%);/*This hides the nav menu when the hamburger is displayed*/
+		transition: 0s; /*This keeps the mobile nav menu from appearing when the window is */
+	}
+	.nav-list { 
+		display: flex; 
+		flex-direction: column; 
+		height: 37.7vh;
+	}
+	.nav-item {
+		padding-top: 30px;
+		padding-bottom: 20px;
+		text-align: center; 
+	}
+	nav .menu-toggle {
+		display: grid; 
+	}
+	nav a:after {/*All of the targets in this section make the hover underline effect go away when the hamburger menu displays*/
+		background: no-repeat;	
+		transition: none;
+		left: 0%; 
+	}
+	nav a:hover:after { 
+		width: 0%;/*This also makes the hover underline effect go away when the hamburger menu displays*/
+	}
+	nav ul li {
+		position: relative; 
+	}
+	nav ul li:hover {
+		background-color: white;  
+	}
+/*Mobile Hamburger Menu END */
+	.button-home {
+		width: 16%;
+		text-align: center;
+		color: #043745;
+	}
+	.container header nav {
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		width: 100%;
+		float: none;
+		overflow: auto;
+		display: inline-block;
+	}
+	.hero {
+		padding-top: 30px; 
+	}
+	.hero-nonhomepgs {
+		padding-top: 5px; 
+		padding-bottom: 5px; 
+	}
+	.decorbox {
+		top: -30px;  
+	}
+	.hero_header, .tagline {
+		margin-left: 65px;
+	}
+	.hero_header {
+		top: -230px;
+		line-height: 75px; 
+	}
+	.tagline {
+		top: 85px;
+	}
+	h1 {
+		margin-top: 80px;
+		padding-bottom: 20px; 
+	}
+	.about {
+		flex-direction: column-reverse; /*In the HTML code, the text-column comes first. Column-reverse makes the photo come first instead. You can change this to just column to */
+		align-items: center; /*This aligns the text_column and photo-column within the about div. The .about div is a flexbox*/
+	}
+	.text_column {
+		width: 90%;
+		height: auto; 
+		margin-top: 5px;
+		margin-bottom: -40px; 
+		transform: translate(0px, 0px); 
+	}
+	.photo_column {
+		width: 90%; 
+		text-align: center;  
+		margin-top: 20px; 
+		margin-bottom: 15px; 
+	}
+	.thumbnail {
+		width: 100%;
+	}
+	.flexcontainer-samplework-photo-2 {
+		text-align: left; 
+	}
+	.footer_column {
+		width: 100%;
+		margin-top: 0px;
+	}
+	.banner {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+/*Resume Page*/
+	.resume-cv-container, .experience-container, .skills-container, .three-col-container, .three-col-container-2 {
+		flex-direction: column; 
+	}
+	.button-column-3 {
+		display: flex; 
+		flex-direction: row; 
+		justify-content: space-around; /*You'll want to do row-reverse to get the resume and cv buttons to display at the top*/
+	}
+	.button-column, .button-column-2 {
+		display: none; 
+	}
+	.resume-headings, .resume-headings-2, .resume-headings-3 {
+		top: 0px; 
+		width: 70vw; 
+		flex-basis: 10vw;  /*somehow this controls the space between Education and the text*/
+	}
+	.text_resume, .text_resume-2, .text_resume-3 {
+		margin-left: 55px; 
+		width: 70vw; 
+		flex-basis: 20vw; 
+	}
+	.h3-portfolio {
+		padding-left: 10px; 
+	}
+/*Resume Page End*/
+}
+/* Small Desktops */
+@media (min-width: 768px) and (max-width: 1096px) {
+	.text_column {
+		width: 90%;
+		transform: translate(0px, 0px); 
+		margin-left: 20px; 
+	}
+	.photo_column {
+		margin-top: 10px; 
+		text-align: center; 
+		align-content: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		display: block; 
+		width: 100%; 
+	}
+	.container-sampleworks {
+		grid-template-columns: repeat(auto-fill, 350px);
+		padding-left: 0px; 
+	}
+/*.container-sampleworks {
+	display: grid; 
+	grid-template-columns: repeat(auto-fill, 350px);
+	grid-template-rows: 450px; 
+	grid-column-gap: 5em;
+	grid-row-gap: 1em; 
+	padding: 40px 0px 0px 60px; 
+}*/
+}
+
